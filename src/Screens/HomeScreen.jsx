@@ -15,7 +15,6 @@ import {SliderBox} from 'react-native-image-slider-box';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import DrawerContent from '../components/DrawerContent';
 import MenuDrawer from 'react-native-side-drawer';
-// hello shubham!
 
 import {useNavigation} from '@react-navigation/native';
 // import {BottomSheet} from 'react-native-simple-bottom-sheet';
