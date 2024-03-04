@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "308609179291",
+    "project_id": "suryagujrat-63a82",
+    "storage_bucket": "suryagujrat-63a82.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:308609179291:android:ba523e684729058226703e",
+        "android_client_info": {
+          "package_name": "com.suryagujrat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQjMYNAy-sW7f3OaS0b0TSHyksSfC6fR8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
