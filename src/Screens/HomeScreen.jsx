@@ -15,6 +15,7 @@ import {SliderBox} from 'react-native-image-slider-box';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import DrawerContent from '../components/DrawerContent';
 import MenuDrawer from 'react-native-side-drawer';
+import Styling from '../components/Styling';
 
 import {useNavigation} from '@react-navigation/native';
 // import {BottomSheet} from 'react-native-simple-bottom-sheet';
@@ -92,56 +93,58 @@ const HomeScreen = ({navigation}) => {
             />
           </View>
 
-          <View>
-            <Text style={styles.iconMenuHeader}>Track Application</Text>
+          <View style={{marginLeft: screenWidth * 0.04}}>
+            <Text style={Styling.Header3}>Track Application</Text>
             <View style={styles.menuRow}>
               <View style={styles.iconMenuView}>
                 <View style={styles.iconMenutwobackground}>
                   <View style={styles.iconMenutwo}>
                     <TouchableOpacity
-                      style={[{marginLeft: 10}]}
                       onPress={() =>
                         navigation.navigate('TrackApplicationScreen')
                       }>
-                      <MaterialCommunityIcons
-                        name={'compass-outline'}
-                        color="#000000"
-                        size={28}
-                        marginLeft={6}
-                        marginTop={14}
+                      <Image
+                        source={require('../../assets/ic_track_application.png')}
+                        style={{
+                          width: 50,
+                          height: 50,
+                          marginTop: 4,
+                          marginLeft: 4,
+                        }} // Adjust the style as needed
                       />
                     </TouchableOpacity>
                   </View>
                 </View>
-                <Text style={[styles.iconMenuText]}>
+                <Text style={[Styling.Text2, {textAlign: 'center'}]}>
                   Track {'\n'} Application
                 </Text>
               </View>
             </View>
           </View>
 
-          <View>
-            <Text style={styles.iconMenuHeader}>Know about Rooftop Solar</Text>
+          <View style={{marginLeft: screenWidth * 0.04}}>
+            <Text style={Styling.Header3}>Know about Rooftop Solar</Text>
             <View style={[styles.menuRow, {flex: 1}]}>
               <View style={[styles.iconMenuView]}>
                 <View style={styles.iconMenutwobackground}>
                   <View style={styles.iconMenutwo}>
                     <TouchableOpacity
-                      style={{marginLeft: 10}}
                       onPress={() =>
                         navigation.navigate('CalculateSavingsScreen')
                       }>
-                      <MaterialCommunityIcons
-                        name={'compass-outline'}
-                        color="#000000"
-                        size={28}
-                        marginLeft={6}
-                        marginTop={14}
+                      <Image
+                        source={require('../../assets/ic_solar_calculator.png')}
+                        style={{
+                          width: 45,
+                          height: 45,
+                          marginTop: 7,
+                          marginLeft: 6,
+                        }}
                       />
                     </TouchableOpacity>
                   </View>
                 </View>
-                <Text style={[styles.iconMenuText]}>
+                <Text style={[Styling.Text2, {textAlign: 'center'}]}>
                   Calculate{'\n'}Savings
                 </Text>
               </View>
@@ -149,87 +152,92 @@ const HomeScreen = ({navigation}) => {
                 <View style={styles.iconMenutwobackground}>
                   <View style={styles.iconMenutwo}>
                     <TouchableOpacity
-                      style={[{marginLeft: 10}]}
                       onPress={() =>
-                        navigation.navigate('ApplicationDetailScreen')
+                        navigation.navigate('KnowAboutRooftopScreen')
                       }>
-                      <MaterialCommunityIcons
-                        name={'compass-outline'}
-                        color="#000000"
-                        size={28}
-                        marginLeft={6}
-                        marginTop={14}
+                      <Image
+                        source={require('../../assets/ic_know_solar.png')}
+                        style={{
+                          width: 50,
+                          height: 50,
+                          marginTop: 4,
+                          marginLeft: 3.5,
+                        }}
                       />
                     </TouchableOpacity>
                   </View>
                 </View>
-                <Text style={[styles.iconMenuText]}>
+                <Text style={[Styling.Text2, {textAlign: 'center'}]}>
                   Know about{'\n'}rooftop Solar
                 </Text>
               </View>
               <View style={styles.iconMenuView}>
                 <View style={styles.iconMenutwobackground}>
                   <View style={styles.iconMenutwo}>
-                    <TouchableOpacity
-                      style={[{marginLeft: 10}]}
-                      onPress={() =>
-                        navigation.navigate('ImportantDocumentsScreen')
-                      }>
-                      <MaterialCommunityIcons
-                        name={'compass-outline'}
-                        color="#000000"
-                        size={28}
-                        marginLeft={6}
-                        marginTop={14}
+                    <TouchableOpacity>
+                      <Image
+                        source={require('../../assets/ic_important_document.png')}
+                        style={{
+                          width: 40,
+                          height: 45,
+                          marginTop: 5,
+                          marginLeft: 8,
+                        }}
                       />
                     </TouchableOpacity>
                   </View>
                 </View>
-                <Text style={[styles.iconMenuText]}>
-                  Important{'\n'}Documnets
+                <Text style={[Styling.Text2, {textAlign: 'center'}]}>
+                  Important{'\n'}Documents
                 </Text>
               </View>
             </View>
           </View>
 
-          <View>
-            <Text style={styles.iconMenuHeader}>Contact</Text>
+          <View style={{marginLeft: screenWidth * 0.04}}>
+            <Text style={Styling.Header3}>Contact</Text>
             <View style={styles.menuRow}>
               <View style={styles.iconMenuView}>
                 <View style={styles.iconMenutwobackground}>
                   <View style={styles.iconMenutwo}>
                     <TouchableOpacity
-                      style={[{marginLeft: 10}]}
                       onPress={() => navigation.navigate('InstallersScreen')}>
-                      <MaterialCommunityIcons
-                        name={'compass-outline'}
-                        color="#000000"
-                        size={28}
-                        marginLeft={6}
-                        marginTop={14}
+                      <Image
+                        source={require('../../assets/ic_find_installer.png')}
+                        style={{
+                          width: 38,
+                          height: 46,
+                          marginTop: 4,
+                          marginLeft: 9,
+                        }}
                       />
                     </TouchableOpacity>
                   </View>
                 </View>
-                <Text style={[styles.iconMenuText]}>Installers {'\n'}</Text>
+                <Text style={[Styling.Text2, {textAlign: 'center'}]}>
+                  Installers {'\n'}
+                </Text>
               </View>
               <View style={styles.iconMenuView}>
                 <View style={styles.iconMenutwobackground}>
                   <View style={styles.iconMenutwo}>
                     <TouchableOpacity
-                      style={[{marginLeft: 10}]}
                       onPress={() => Alert.alert('menu pressed')}>
-                      <MaterialCommunityIcons
-                        name={'compass-outline'}
-                        color="#000000"
-                        size={28}
-                        marginLeft={6}
-                        marginTop={14}
+                      <Image
+                        source={require('../../assets/ic_contact_us.png')}
+                        style={{
+                          width: 45,
+                          height: 45,
+                          marginTop: 6,
+                          marginLeft: 4,
+                        }}
                       />
                     </TouchableOpacity>
                   </View>
                 </View>
-                <Text style={[styles.iconMenuText]}>Contact Us{'\n'}</Text>
+                <Text style={[Styling.Text2, {textAlign: 'center'}]}>
+                  Contact Us{'\n'}
+                </Text>
               </View>
             </View>
           </View>
@@ -274,18 +282,13 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   iconMenuView: {
-    marginLeft: screenWidth * 0.05,
     marginTop: screenHeight * 0.025,
-  },
-  iconMenuText: {
-    fontSize: 12,
-    color: 'black',
-    textAlign: 'center',
+    padding: 5,
+    alignItems: 'center',
   },
   iconMenuHeader: {
     color: '#000000',
     marginTop: 27,
-    marginLeft: 15,
     fontWeight: 'bold',
   },
   menuRow: {
@@ -312,22 +315,5 @@ const styles = StyleSheet.create({
   },
   imageComponent: {
     borderRadius: 5,
-  },
-
-  //////
-
-  bottomSheetContent: {
-    backgroundColor: 'white',
-    padding: 20,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-  },
-  bottomSheetHandle: {
-    width: 40,
-    height: 6,
-    backgroundColor: '#ccc',
-    borderRadius: 6,
-    alignSelf: 'center',
-    marginTop: 6,
   },
 });

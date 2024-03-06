@@ -1,6 +1,16 @@
-import {SafeAreaView, StyleSheet, Text, View, StatusBar} from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  StatusBar,
+  Dimensions,
+} from 'react-native';
 import React, {useState} from 'react';
 import {Button, TextInput} from 'react-native-paper';
+import Styling from '../components/Styling';
+const screenWidth = Dimensions.get('window').width;
+const screenHeight = Dimensions.get('window').height;
 
 const TrackApplicationScreen = ({navigation}) => {
   const [applicationNo, setApplicationNo] = useState('');
@@ -47,18 +57,18 @@ const TrackApplicationScreen = ({navigation}) => {
 
         <View style={styles.buttonContainer}>
           <Button mode="contained" style={styles.button2} onPress={clearFields}>
-            <Text style={{color: '#F9b120'}}>Clear</Text>
+            <Text style={{...Styling.buttonText, color: '#e6b800'}}>Clear</Text>
           </Button>
 
           <Button
             mode="contained"
             style={styles.button1}
             onPress={() => navigation.navigate('ApplicationDetailScreen')}>
-            Search
+            <Text style={Styling.buttonText}>Search</Text>
           </Button>
         </View>
 
-        <Text style={styles.texts}>
+        <Text style={{...Styling.Text2, marginTop: screenWidth * 0.1}}>
           Consumer can do the following activities from here by entering your
           Application Number, Consumer Number and Consumer Mobile Number:
           {'\n'}

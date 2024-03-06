@@ -11,6 +11,7 @@ import React, {useState} from 'react';
 import {ScrollView} from 'react-native-gesture-handler';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import StepIndicator from 'react-native-step-indicator';
+import Styling from '../components/Styling';
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
@@ -22,17 +23,17 @@ const ApplicationDetailScreen = () => {
 
   const labels = [
     'Application Submitted',
-    'Document Verified',
-    'DisCom Letter',
-    'Feasibility Approved',
-    'CEI Approval',
-    'Work Execution',
-    'CEI Approval',
-    'Meter Installation',
-    'Subsidy Claimed',
+    'Document Verified       ',
+    'DisCom Letter              ',
+    'Feasibility Approved    ',
+    'CEI Approval                  ',
+    'Work Execution            ',
+    'CEI Approval                 ',
+    'Meter Installation        ',
+    'Subsidy Claimed          ',
   ];
   const customStyles = {
-    stepIndicatorSize: 25,
+    stepIndicatorSize: 30,
     currentStepIndicatorSize: 30,
     separatorStrokeWidth: 2,
     currentStepStrokeWidth: 0,
@@ -60,14 +61,14 @@ const ApplicationDetailScreen = () => {
       <StatusBar backgroundColor="#e6b800" />
       <ScrollView style={{height: screenHeight * 0.84}}>
         <View style={styles.applicationDetailHeader}>
-          <Text style={{fontSize: 16, fontWeight: 'bold', color: 'black'}}>
-            Mr. ALOO SINGH
-          </Text>
+          <Text style={Styling.Header1}>Mr. ALOO SINGH</Text>
         </View>
         <View>
           <View style={styles.applicationDetailData}>
-            <Text style={styles.applicationDetailDataText}>Status</Text>
-            <Text style={styles.applicationDetailDataTextRight}>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
+              Status
+            </Text>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
               Subsidy Claimed
             </Text>
           </View>
@@ -80,8 +81,10 @@ const ApplicationDetailScreen = () => {
           />
 
           <View style={styles.applicationDetailData}>
-            <Text style={styles.applicationDetailDataText}>Modifies</Text>
-            <Text style={styles.applicationDetailDataTextRight}>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
+              Modifies
+            </Text>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
               22-jun-2021 5:45 PM
             </Text>
           </View>
@@ -94,8 +97,10 @@ const ApplicationDetailScreen = () => {
           />
 
           <View style={styles.applicationDetailData}>
-            <Text style={styles.applicationDetailDataText}>Submitted</Text>
-            <Text style={styles.applicationDetailDataTextRight}>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
+              Submitted
+            </Text>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
               22-Feb-2021 1:41 PM
             </Text>
           </View>
@@ -108,10 +113,12 @@ const ApplicationDetailScreen = () => {
           />
 
           <View style={styles.applicationDetailData}>
-            <Text style={styles.applicationDetailDataText}>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
               PV capacity (DC) to be installed (in kW)
             </Text>
-            <Text style={styles.applicationDetailDataTextRight}>4.0</Text>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
+              4.0
+            </Text>
           </View>
           <View
             style={{
@@ -122,10 +129,10 @@ const ApplicationDetailScreen = () => {
           />
 
           <View style={styles.applicationDetailData}>
-            <Text style={styles.applicationDetailDataText}>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
               Application No.
             </Text>
-            <Text style={styles.applicationDetailDataTextRight}>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
               GUJ/P2/20-21/RT/RES/10266605
             </Text>
           </View>
@@ -138,8 +145,10 @@ const ApplicationDetailScreen = () => {
           />
 
           <View style={styles.applicationDetailData}>
-            <Text style={styles.applicationDetailDataText}>Consumer No.</Text>
-            <Text style={styles.applicationDetailDataTextRight}>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
+              Consumer No.
+            </Text>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
               15228013253
             </Text>
           </View>
@@ -152,8 +161,10 @@ const ApplicationDetailScreen = () => {
           />
 
           <View style={styles.applicationDetailData}>
-            <Text style={styles.applicationDetailDataText}>Installer</Text>
-            <Text style={styles.applicationDetailDataTextRight}>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
+              Installer
+            </Text>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
               Sunlight Solar Enterprise
             </Text>
           </View>
@@ -166,10 +177,12 @@ const ApplicationDetailScreen = () => {
           />
 
           <View style={styles.applicationDetailData}>
-            <Text style={styles.applicationDetailDataText}>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
               Feasibility Comment
             </Text>
-            <Text style={styles.applicationDetailDataTextRight}>-</Text>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
+              -
+            </Text>
           </View>
           <View
             style={{
@@ -180,8 +193,10 @@ const ApplicationDetailScreen = () => {
           />
 
           <View style={styles.applicationDetailData}>
-            <Text style={styles.applicationDetailDataText}>DisCom</Text>
-            <Text style={styles.applicationDetailDataTextRight}>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
+              DisCom
+            </Text>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
               MGVCL/BARODA CITY CIRCLE?VISHVAMITRI(W) DIVISION / FATEHGUNJ CITY
               S/D
             </Text>
@@ -195,8 +210,12 @@ const ApplicationDetailScreen = () => {
           />
 
           <View style={styles.applicationDetailData}>
-            <Text style={styles.applicationDetailDataText}>Quotation No.</Text>
-            <Text style={styles.applicationDetailDataTextRight}>6139092</Text>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
+              Quotation No.
+            </Text>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
+              6139092
+            </Text>
           </View>
           <View
             style={{
@@ -207,10 +226,12 @@ const ApplicationDetailScreen = () => {
           />
 
           <View style={styles.applicationDetailData}>
-            <Text style={styles.applicationDetailDataText}>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
               Estimated Amount
             </Text>
-            <Text style={styles.applicationDetailDataTextRight}>2949.89</Text>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
+              2949.89
+            </Text>
           </View>
           <View
             style={{
@@ -221,10 +242,10 @@ const ApplicationDetailScreen = () => {
           />
 
           <View style={styles.applicationDetailData}>
-            <Text style={styles.applicationDetailDataText}>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
               Estimated Due Date
             </Text>
-            <Text style={styles.applicationDetailDataTextRight}>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
               27-Mar-2021
             </Text>
           </View>
@@ -237,8 +258,12 @@ const ApplicationDetailScreen = () => {
           />
 
           <View style={styles.applicationDetailData}>
-            <Text style={styles.applicationDetailDataText}>Payment Status</Text>
-            <Text style={styles.applicationDetailDataTextRight}>Paid</Text>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
+              Payment Status
+            </Text>
+            <Text style={[Styling.Text2, {maxWidth: screenWidth * 0.4}]}>
+              Paid
+            </Text>
           </View>
           <View
             style={{
@@ -264,14 +289,14 @@ const ApplicationDetailScreen = () => {
           <TouchableOpacity
             style={styles.button}
             onPress={() => console.log('View All pressed')}>
-            <Text style={styles.buttonText}>VIEW ALL</Text>
+            <Text style={Styling.buttonText}>VIEW ALL</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.buttonWrapper}>
           <TouchableOpacity
             style={styles.button}
             onPress={() => console.log('View last comment pressed')}>
-            <Text style={styles.buttonText}>VIEW LAST COMMENT</Text>
+            <Text style={Styling.buttonText}>VIEW LAST COMMENT</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -294,17 +319,6 @@ const styles = StyleSheet.create({
     marginStart: screenWidth * 0.05,
     marginEnd: screenWidth * 0.1,
   },
-  applicationDetailDataText: {
-    fontSize: 12,
-    color: 'black',
-    maxWidth: screenWidth * 0.4,
-  },
-  applicationDetailDataTextRight: {
-    fontSize: 12,
-    color: 'black',
-    maxWidth: screenWidth * 0.4,
-    textAlign: 'left',
-  },
   ////////////////////////////////////////////////////////////////////////
   buttonContainer: {
     flexDirection: 'row',
@@ -321,12 +335,6 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: '#F9b120',
     paddingVertical: 10,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 13,
-    textAlign: 'center',
-    fontWeight: 'bold',
   },
   ////////////////
 

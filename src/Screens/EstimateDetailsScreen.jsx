@@ -12,6 +12,7 @@ import {ScrollView} from 'react-native-gesture-handler';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import CustomSlider from '../components/CustomSlider';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Styling from '../components/Styling';
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
@@ -22,7 +23,8 @@ const EstimateDetailsScreen = () => {
       style={{height: '100%', backgroundColor: '#F8F4E9'}}>
       <ScrollView>
         <View style={{marginStart: screenWidth * 0.07, marginVertical: 10}}>
-          <Text style={styles.header}>
+          <Text
+            style={[Styling.Header1, {marginHorizontal: screenWidth * 0.02}]}>
             As per Details , You should install at least {data} Solar Rooftop
             System.
           </Text>
@@ -67,7 +69,11 @@ const EstimateDetailsScreen = () => {
         </View>
 
         <View>
-          <Text style={styles.header2}>
+          <Text
+            style={[
+              Styling.Text2,
+              {textAlign: 'center', marginHorizontal: screenWidth * 0.03},
+            ]}>
             Solar installation are sized in kW Customized solar PV Capacity by
             moving the green pointer.
           </Text>
@@ -84,13 +90,17 @@ const EstimateDetailsScreen = () => {
             marginHorizontal: screenWidth * 0.08,
           }}>
           <View style={{flexDirection: 'column'}}>
-            <Text style={styles.headerApprox}>Approx. System Cost</Text>
-            <Text style={{fontWeight: 'bold', color: 'black'}}>Rs.0.46</Text>
+            <Text style={[Styling.Text2, {fontWeight: 500}]}>
+              Approx. System Cost
+            </Text>
+            <Text style={Styling.BoldText2}>Rs.0.46</Text>
           </View>
           <View
             style={{flexDirection: 'column', marginStart: screenWidth * 0.2}}>
-            <Text style={styles.headerApprox}>Approx. System Cost</Text>
-            <Text style={{fontWeight: 'bold', color: 'black'}}>Rs.0.46</Text>
+            <Text style={[Styling.Text2, {fontWeight: 500}]}>
+              Approx. System Cost
+            </Text>
+            <Text style={Styling.BoldText2}>Rs.0.46</Text>
           </View>
         </View>
 
@@ -108,12 +118,12 @@ const EstimateDetailsScreen = () => {
               />
             </TouchableOpacity>
             <Text
-              style={{
-                color: 'black',
-                fontWeight: '500',
-                marginStart: 10,
-                fontSize: 12,
-              }}>
+              style={[
+                Styling.Text2,
+                {
+                  marginStart: 10,
+                },
+              ]}>
               986455776
             </Text>
           </View>
@@ -125,19 +135,23 @@ const EstimateDetailsScreen = () => {
               />
             </TouchableOpacity>
             <Text
-              style={{
-                color: 'black',
-                fontWeight: '500',
-                marginStart: 10,
-                fontSize: 12,
-              }}>
+              style={[
+                Styling.Text2,
+                {
+                  marginStart: 10,
+                },
+              ]}>
               __
             </Text>
           </View>
         </View>
 
         <View>
-          <Text style={styles.header3}>
+          <Text
+            style={[
+              Styling.Text2,
+              {fontWeight: '500', marginStart: screenWidth * 0.07},
+            ]}>
             The Lead is created and sent to the all the empanelled installer.The
             unique no. is SG4409 for further tracking.
           </Text>
@@ -152,9 +166,17 @@ const EstimateDetailsScreen = () => {
         </View>
 
         <View>
-          <Text style={styles.header4}>
-            (You can appply through Emanelled installer, Nearest DisCom office
-            or Directly through the AHA Solar App)
+          <Text
+            style={[
+              Styling.Text2,
+              {
+                fontWeight: '500',
+                marginHorizontal: screenWidth * 0.07,
+                marginBottom: 20,
+              },
+            ]}>
+            (You can apply through Emanelled installer, Nearest DisCom office or
+            Directly through the AHA Solar App)
           </Text>
         </View>
       </ScrollView>
@@ -184,7 +206,6 @@ const styles = StyleSheet.create({
     color: 'black',
     fontSize: 12,
     textAlign: 'center',
-    marginHorizontal: 11,
   },
   headerApprox: {
     color: 'black',

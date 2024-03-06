@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import Slider from '@react-native-community/slider';
 import {Button, TextInput} from 'react-native-paper';
+import Styling from './Styling';
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
@@ -52,12 +53,14 @@ const CustomSlider = () => {
         thumbTintColor="green"
       />
 
-      <Text style={styles.header2}>
+      <Text style={[Styling.Text2, {marginHorizontal: screenWidth * 0.03}]}>
         The PV System will cover about 116.67% of your electricity uses.
       </Text>
 
       <View style={{marginVertical: 20}}>
-        <Text style={{fontSize: 15, color: 'black'}}>Capacity(kW)</Text>
+        <Text style={[Styling.Header1, {marginStart: screenWidth * 0.02}]}>
+          Capacity(kW)
+        </Text>
         <View style={{flexDirection: 'row'}}>
           <View style={{flexDirection: 'column'}}>
             <TextInput
@@ -73,7 +76,7 @@ const CustomSlider = () => {
           <TouchableOpacity
             style={styles.button}
             onPress={() => console.log('View last comment pressed')}>
-            <Text style={styles.buttonText}>UPDATE</Text>
+            <Text style={Styling.buttonText}>UPDATE</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -121,8 +124,8 @@ const styles = StyleSheet.create({
   },
   textInputs: {
     margin: 10,
-    width: screenWidth * 0.58,
-    height: screenWidth * 0.13,
+    width: screenWidth * 0.6,
+    height: screenWidth * 0.12,
   },
 });
 

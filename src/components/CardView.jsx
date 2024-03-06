@@ -7,6 +7,7 @@ import {
   Dimensions,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Styling from './Styling';
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
@@ -22,7 +23,9 @@ const CardView = ({icon, description, buttonText, onPress, color}) => {
           <Text style={styles.description}>{description}</Text>
         </View>
         <View style={styles.buttonContainer}>
-          <Text style={styles.buttonText}>{buttonText}</Text>
+          <Text style={[Styling.Text2, {textAlign: 'center'}]}>
+            {buttonText}
+          </Text>
         </View>
       </TouchableOpacity>
     </View>
@@ -63,11 +66,6 @@ const styles = StyleSheet.create({
     height: 'auto',
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
-  },
-  buttonText: {
-    fontSize: 13,
-    color: '#000000',
-    textAlign: 'center',
   },
   container: {
     justifyContent: 'space-between',

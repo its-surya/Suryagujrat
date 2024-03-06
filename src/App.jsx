@@ -7,6 +7,7 @@ import HomeScreen from './Screens/HomeScreen';
 import CalculateSavingsScreen from './Screens/CalculateSavingsScreen';
 import ApplicationDetailScreen from './Screens/ApplicationDetailScreen';
 import EstimateDetailsScreen from './Screens/EstimateDetailsScreen';
+import KnowAboutRooftopScreen from './Screens/KnowAboutRooftopScreen';
 
 const Stack = createStackNavigator();
 
@@ -87,6 +88,20 @@ export default function App() {
           component={EstimateDetailsScreen}
           options={{
             title: 'Estimate Details',
+            headerStyle: {
+              backgroundColor: '#F9b120',
+            },
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+            headerTintColor: 'white',
+          }}></Stack.Screen>
+
+        <Stack.Screen
+          name="KnowAboutRooftopScreen"
+          component={KnowAboutRooftopScreen}
+          options={{
+            title: 'Know About Rooftop',
             headerStyle: {
               backgroundColor: '#F9b120',
             },

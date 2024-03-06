@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import {Dropdown} from 'react-native-element-dropdown';
 import {Button, Checkbox, TextInput} from 'react-native-paper';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Styling from '../components/Styling';
 
 const CalculateSavingsScreen = ({navigation}) => {
   const [selectedValue, setSelectedValue] = useState('');
@@ -128,7 +128,7 @@ const CalculateSavingsScreen = ({navigation}) => {
               mode="contained"
               style={styles.button}
               onPress={() => navigation.navigate('EstimateDetailsScreen')}>
-              Submit
+              <Text style={Styling.buttonText}>Submit</Text>
             </Button>
 
             <View style={{flexDirection: 'row', alignItems: 'flex-start'}}>
