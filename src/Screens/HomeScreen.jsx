@@ -172,7 +172,9 @@ const HomeScreen = ({navigation}) => {
                   <View style={styles.iconMenutwo}>
                     <TouchableOpacity
                       style={[{marginLeft: 10}]}
-                      onPress={() => Alert.alert('menu pressed')}>
+                      onPress={() =>
+                        navigation.navigate('ImportantDocumentsScreen')
+                      }>
                       <MaterialCommunityIcons
                         name={'compass-outline'}
                         color="#000000"
@@ -227,7 +229,7 @@ const HomeScreen = ({navigation}) => {
                     </TouchableOpacity>
                   </View>
                 </View>
-                <Text style={[styles.iconMenuText]}>Track through{'\n'}QR</Text>
+                <Text style={[styles.iconMenuText]}>Contact Us{'\n'}</Text>
               </View>
             </View>
           </View>
