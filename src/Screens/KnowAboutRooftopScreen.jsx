@@ -1,6 +1,7 @@
 import React from 'react';
 import {ScrollView, StyleSheet, View, Dimensions} from 'react-native';
 import HTML from 'react-native-htmlview';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
@@ -11,13 +12,15 @@ const KnowAboutRooftopScreen = () => {
     `;
 
   return (
-    <View style={{backgroundColor: '#F8F4E9', height: '100%'}}>
-      <View style={styles.container}>
-        <ScrollView>
-          <HTML value={source} />
-        </ScrollView>
+    <SafeAreaView>
+      <View style={{backgroundColor: '#F8F4E9', height: '100%'}}>
+        <View style={styles.container}>
+          <ScrollView>
+            <HTML value={source} />
+          </ScrollView>
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

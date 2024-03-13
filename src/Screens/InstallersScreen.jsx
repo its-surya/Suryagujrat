@@ -4,11 +4,13 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Image,
 } from 'react-native';
 import React, {useState} from 'react';
 import {FlatList, GestureHandlerRootView} from 'react-native-gesture-handler';
 import {TextInput} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Styling from '../components/Styling';
 
 export default function InstallersScreen() {
   const [search, setSearch] = useState('');
@@ -44,12 +46,12 @@ export default function InstallersScreen() {
   const RenderItem = ({item}) => (
     <View style={styles.Card}>
       <View style={styles.cardTitle}>
-        <Text style={styles.title}>{item.Name}</Text>
+        <Text style={Styling.Header1}>{item.Name}</Text>
       </View>
 
       <View style={{padding: 8}}>
         <Text>
-          <Text style={{fontWeight: 'bold'}}>Scheme Name :</Text>
+          <Text style={Styling.BoldText2}>Scheme Name :</Text>
           {item.SchemeName}
         </Text>
 
@@ -72,13 +74,28 @@ export default function InstallersScreen() {
           <TouchableOpacity
             onPress={() => console.log('Pressed email')}
             style={{flex: 1}}>
-            <Icon name="email" size={21} color={'#F9b120'} />
+            <Image
+              source={require('../../assets/ic_email.png')}
+              style={{
+                tintColor: '#e6b800',
+                width: 30,
+                height: 30,
+              }} // Adjust the style as needed
+            />
           </TouchableOpacity>
 
           <TouchableOpacity
             onPress={() => console.log('Pressed Call')}
             style={{flex: 1}}>
-            <Icon name="phone-dial" size={21} color={'green'} />
+            <Image
+              source={require('../../assets/ic_call.png')}
+              style={{
+                tintColor: 'green',
+                width: 30,
+                height: 30,
+                marginLeft: 6,
+              }} // Adjust the style as needed
+            />
           </TouchableOpacity>
         </View>
       </View>
@@ -121,10 +138,6 @@ const styles = StyleSheet.create({
     padding: 6,
     borderTopLeftRadius: 8,
     borderTopRightRadius: 8,
-  },
-  title: {
-    fontWeight: 'bold',
-    fontSize: 18,
   },
   textInputs: {
     margin: 10,

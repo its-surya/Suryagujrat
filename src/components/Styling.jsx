@@ -8,7 +8,6 @@ const Styling = StyleSheet.create({
   },
   Header3: {
     color: '#000000',
-    marginTop: 27,
     fontWeight: 'bold',
   },
   buttonText: {

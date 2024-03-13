@@ -57,7 +57,7 @@ const TrackApplicationScreen = ({navigation}) => {
 
         <View style={styles.buttonContainer}>
           <Button mode="contained" style={styles.button2} onPress={clearFields}>
-            <Text style={{...Styling.buttonText, color: '#e6b800'}}>Clear</Text>
+            <Text style={[Styling.buttonText, {color: '#e6b800'}]}>Clear </Text>
           </Button>
 
           <Button

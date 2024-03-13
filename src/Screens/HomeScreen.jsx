@@ -9,6 +9,7 @@ import {
   Dimensions,
   Text,
   StyleSheet,
+  SafeAreaView,
 } from 'react-native';
 import CustomStatusBarHome from '../components/CustomStatusBarHome';
 import {SliderBox} from 'react-native-image-slider-box';
@@ -54,196 +55,172 @@ const HomeScreen = ({navigation}) => {
   ];
 
   return (
-    <View style={styles.container}>
-      {isDrawerOpen && (
-        <TouchableOpacity style={styles.overlay} onPress={closeDrawer} />
-      )}
-      <MenuDrawer
-        open={isDrawerOpen}
-        position={'left'}
-        drawerContent={drawerContent()}
-        drawerPercentage={80}
-        animationTime={200}
-        overlay={true}
-        opacity={0.4}
-        onClose={closeDrawer}>
-        <StatusBar backgroundColor="#e6b800" />
-        <View backgroundColor="#F8F4E9">
-          <CustomStatusBarHome
-            toggleDrawer={toggleDrawer}
-            toggleBottomSheet={toggleBottomSheet}
-          />
-        </View>
-        <ScrollView>
-          <View style={{padding: 6}}>
-            <SliderBox
-              images={images}
-              sliderBoxHeight={screenHeight * 0.228}
-              parentWidth={screenWidth * 0.97}
-              paginationBoxVerticalPadding={20}
-              autoplay
-              circleLoop
-              resizeMethod={'resize'}
-              resizeMode={'cover'}
-              paginationBoxStyle={styles.paginationBox}
-              dotStyle={styles.dotStyle}
-              ImageComponentStyle={styles.imageComponent}
-              imageLoadingColor="#2196F3"
-              autoplayInterval={6000}
+    <SafeAreaView>
+      <View style={styles.container}>
+        {isDrawerOpen && (
+          <TouchableOpacity style={styles.overlay} onPress={closeDrawer} />
+        )}
+        <MenuDrawer
+          open={isDrawerOpen}
+          position={'left'}
+          drawerContent={drawerContent()}
+          drawerPercentage={80}
+          animationTime={200}
+          overlay={true}
+          opacity={0.4}
+          onClose={closeDrawer}>
+          <StatusBar backgroundColor="#e6b800" />
+          <View backgroundColor="#F8F4E9">
+            <CustomStatusBarHome
+              toggleDrawer={toggleDrawer}
+              toggleBottomSheet={toggleBottomSheet}
             />
           </View>
+          <ScrollView>
+            <View style={{padding: screenWidth * 0.015}}>
+              <SliderBox
+                images={images}
+                sliderBoxHeight={screenHeight * 0.228}
+                parentWidth={screenWidth * 0.97}
+                paginationBoxVerticalPadding={20}
+                autoplay
+                circleLoop
+                resizeMethod={'resize'}
+                resizeMode={'cover'}
+                paginationBoxStyle={styles.paginationBox}
+                dotStyle={styles.dotStyle}
+                ImageComponentStyle={styles.imageComponent}
+                imageLoadingColor="#2196F3"
+                autoplayInterval={6000}
+              />
+            </View>
 
-          <View style={{marginLeft: screenWidth * 0.04}}>
-            <Text style={Styling.Header3}>Track Application</Text>
-            <View style={styles.menuRow}>
-              <View style={styles.iconMenuView}>
-                <View style={styles.iconMenutwobackground}>
-                  <View style={styles.iconMenutwo}>
-                    <TouchableOpacity
-                      onPress={() =>
-                        navigation.navigate('TrackApplicationScreen')
-                      }>
-                      <Image
-                        source={require('../../assets/ic_track_application.png')}
-                        style={{
-                          width: 50,
-                          height: 50,
-                          marginTop: 4,
-                          marginLeft: 4,
-                        }} // Adjust the style as needed
-                      />
-                    </TouchableOpacity>
+            <View style={{marginLeft: screenWidth * 0.04}}>
+              <Text style={[Styling.Header3, {marginTop: 27}]}>
+                Track Application
+              </Text>
+              <View style={styles.menuRow}>
+                <View style={styles.iconMenuView}>
+                  <View style={styles.iconMenutwobackground}>
+                    <View style={styles.iconMenutwo}>
+                      <TouchableOpacity
+                        onPress={() =>
+                          navigation.navigate('TrackApplicationScreen')
+                        }>
+                        <Image
+                          source={require('../../assets/ic_track_application.png')}
+                          style={styles.icon} // Adjust the style as needed
+                        />
+                      </TouchableOpacity>
+                    </View>
                   </View>
+                  <Text style={[Styling.Text2, {textAlign: 'center'}]}>
+                    Track {'\n'} Application
+                  </Text>
                 </View>
-                <Text style={[Styling.Text2, {textAlign: 'center'}]}>
-                  Track {'\n'} Application
-                </Text>
               </View>
             </View>
-          </View>
 
-          <View style={{marginLeft: screenWidth * 0.04}}>
-            <Text style={Styling.Header3}>Know about Rooftop Solar</Text>
-            <View style={[styles.menuRow, {flex: 1}]}>
-              <View style={[styles.iconMenuView]}>
-                <View style={styles.iconMenutwobackground}>
-                  <View style={styles.iconMenutwo}>
-                    <TouchableOpacity
-                      onPress={() =>
-                        navigation.navigate('CalculateSavingsScreen')
-                      }>
-                      <Image
-                        source={require('../../assets/ic_solar_calculator.png')}
-                        style={{
-                          width: 45,
-                          height: 45,
-                          marginTop: 7,
-                          marginLeft: 6,
-                        }}
-                      />
-                    </TouchableOpacity>
+            <View style={{marginLeft: screenWidth * 0.04}}>
+              <Text style={[Styling.Header3, {marginTop: 27}]}>
+                Know about Rooftop Solar
+              </Text>
+              <View style={[styles.menuRow, {flex: 1}]}>
+                <View style={[styles.iconMenuView]}>
+                  <View style={styles.iconMenutwobackground}>
+                    <View style={styles.iconMenutwo}>
+                      <TouchableOpacity
+                        onPress={() =>
+                          navigation.navigate('CalculateSavingsScreen')
+                        }>
+                        <Image
+                          source={require('../../assets/ic_solar_calculator.png')}
+                          style={styles.icon}
+                        />
+                      </TouchableOpacity>
+                    </View>
                   </View>
+                  <Text style={[Styling.Text2, {textAlign: 'center'}]}>
+                    Calculate{'\n'}Savings
+                  </Text>
                 </View>
-                <Text style={[Styling.Text2, {textAlign: 'center'}]}>
-                  Calculate{'\n'}Savings
-                </Text>
-              </View>
-              <View style={styles.iconMenuView}>
-                <View style={styles.iconMenutwobackground}>
-                  <View style={styles.iconMenutwo}>
-                    <TouchableOpacity
-                      onPress={() =>
-                        navigation.navigate('KnowAboutRooftopScreen')
-                      }>
-                      <Image
-                        source={require('../../assets/ic_know_solar.png')}
-                        style={{
-                          width: 50,
-                          height: 50,
-                          marginTop: 4,
-                          marginLeft: 3.5,
-                        }}
-                      />
-                    </TouchableOpacity>
+                <View style={styles.iconMenuView}>
+                  <View style={styles.iconMenutwobackground}>
+                    <View style={styles.iconMenutwo}>
+                      <TouchableOpacity
+                        onPress={() =>
+                          navigation.navigate('KnowAboutRooftopScreen')
+                        }>
+                        <Image
+                          source={require('../../assets/ic_know_solar.png')}
+                          style={styles.icon}
+                        />
+                      </TouchableOpacity>
+                    </View>
                   </View>
+                  <Text style={[Styling.Text2, {textAlign: 'center'}]}>
+                    Know about{'\n'}rooftop Solar
+                  </Text>
                 </View>
-                <Text style={[Styling.Text2, {textAlign: 'center'}]}>
-                  Know about{'\n'}rooftop Solar
-                </Text>
-              </View>
-              <View style={styles.iconMenuView}>
-                <View style={styles.iconMenutwobackground}>
-                  <View style={styles.iconMenutwo}>
-                    <TouchableOpacity>
-                      <Image
-                        source={require('../../assets/ic_important_document.png')}
-                        style={{
-                          width: 40,
-                          height: 45,
-                          marginTop: 5,
-                          marginLeft: 8,
-                        }}
-                      />
-                    </TouchableOpacity>
+                <View style={styles.iconMenuView}>
+                  <View style={styles.iconMenutwobackground}>
+                    <View style={styles.iconMenutwo}>
+                      <TouchableOpacity>
+                        <Image
+                          source={require('../../assets/ic_important_document.png')}
+                          style={styles.icon}
+                        />
+                      </TouchableOpacity>
+                    </View>
                   </View>
+                  <Text style={[Styling.Text2, {textAlign: 'center'}]}>
+                    Important{'\n'}Documents
+                  </Text>
                 </View>
-                <Text style={[Styling.Text2, {textAlign: 'center'}]}>
-                  Important{'\n'}Documents
-                </Text>
               </View>
             </View>
-          </View>
 
-          <View style={{marginLeft: screenWidth * 0.04}}>
-            <Text style={Styling.Header3}>Contact</Text>
-            <View style={styles.menuRow}>
-              <View style={styles.iconMenuView}>
-                <View style={styles.iconMenutwobackground}>
-                  <View style={styles.iconMenutwo}>
-                    <TouchableOpacity
-                      onPress={() => navigation.navigate('InstallersScreen')}>
-                      <Image
-                        source={require('../../assets/ic_find_installer.png')}
-                        style={{
-                          width: 38,
-                          height: 46,
-                          marginTop: 4,
-                          marginLeft: 9,
-                        }}
-                      />
-                    </TouchableOpacity>
+            <View style={{marginLeft: screenWidth * 0.04}}>
+              <Text style={[Styling.Header3, {marginTop: 27}]}>Contact</Text>
+              <View style={styles.menuRow}>
+                <View style={styles.iconMenuView}>
+                  <View style={styles.iconMenutwobackground}>
+                    <View style={styles.iconMenutwo}>
+                      <TouchableOpacity
+                        onPress={() => navigation.navigate('InstallersScreen')}>
+                        <Image
+                          source={require('../../assets/ic_find_installer.png')}
+                          style={styles.icon}
+                        />
+                      </TouchableOpacity>
+                    </View>
                   </View>
+                  <Text style={[Styling.Text2, {textAlign: 'center'}]}>
+                    Installers {'\n'}
+                  </Text>
                 </View>
-                <Text style={[Styling.Text2, {textAlign: 'center'}]}>
-                  Installers {'\n'}
-                </Text>
-              </View>
-              <View style={styles.iconMenuView}>
-                <View style={styles.iconMenutwobackground}>
-                  <View style={styles.iconMenutwo}>
-                    <TouchableOpacity
-                      onPress={() => Alert.alert('menu pressed')}>
-                      <Image
-                        source={require('../../assets/ic_contact_us.png')}
-                        style={{
-                          width: 45,
-                          height: 45,
-                          marginTop: 6,
-                          marginLeft: 4,
-                        }}
-                      />
-                    </TouchableOpacity>
+                <View style={styles.iconMenuView}>
+                  <View style={styles.iconMenutwobackground}>
+                    <View style={styles.iconMenutwo}>
+                      <TouchableOpacity
+                        onPress={() => Alert.alert('menu pressed')}>
+                        <Image
+                          source={require('../../assets/ic_contact_us.png')}
+                          style={styles.icon}
+                        />
+                      </TouchableOpacity>
+                    </View>
                   </View>
+                  <Text style={[Styling.Text2, {textAlign: 'center'}]}>
+                    Contact Us{'\n'}
+                  </Text>
                 </View>
-                <Text style={[Styling.Text2, {textAlign: 'center'}]}>
-                  Contact Us{'\n'}
-                </Text>
               </View>
             </View>
-          </View>
-        </ScrollView>
-      </MenuDrawer>
-    </View>
+          </ScrollView>
+        </MenuDrawer>
+      </View>
+    </SafeAreaView>
   );
 };
 
@@ -290,6 +267,12 @@ const styles = StyleSheet.create({
     color: '#000000',
     marginTop: 27,
     fontWeight: 'bold',
+  },
+  icon: {
+    width: 47,
+    height: 47,
+    marginTop: 6,
+    marginLeft: 5,
   },
   menuRow: {
     flexDirection: 'row',
