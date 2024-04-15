@@ -39,7 +39,7 @@ const CustomStatusBarHome = ({toggleDrawer, toggleBottomSheet}) => {
         onPress={toggleBottomSheet}
         style={{marginEnd: screenWidth * 0.05}}>
         <Image
-          source={require('../../assets/language.png')}
+          source={require('../../assets/icons/language.png')}
           style={{width: 30, height: 30, tintColor: '#ffffff', marginLeft: 100}} // Adjust the style as needed
         />
       </TouchableOpacity>

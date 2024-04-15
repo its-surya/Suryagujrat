@@ -17,15 +17,19 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import DrawerContent from '../components/DrawerContent';
 import MenuDrawer from 'react-native-side-drawer';
 import Styling from '../components/Styling';
+//For Language
+import {useTranslation} from 'react-i18next';
 
 import {useNavigation} from '@react-navigation/native';
 // import {BottomSheet} from 'react-native-simple-bottom-sheet';
 import {BottomSheet} from '@gorhom/bottom-sheet';
+import {colors} from '../../assets/styles/commonColors';
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
 
 const HomeScreen = ({navigation}) => {
+  const {t} = useTranslation();
   // const navigation = useNavigation();
 
   // Drawer functionality
@@ -50,16 +54,16 @@ const HomeScreen = ({navigation}) => {
   };
 
   const images = [
-    require('../../assets/suryagujrat1.jpg'),
-    require('../../assets/suryagujrat2.jpg'),
+    require('../../assets/images/suryagujrat1.jpg'),
+    require('../../assets/images/suryagujrat2.jpg'),
   ];
 
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        {isDrawerOpen && (
+        {/* {isDrawerOpen && (
           <TouchableOpacity style={styles.overlay} onPress={closeDrawer} />
-        )}
+        )} */}
         <MenuDrawer
           open={isDrawerOpen}
           position={'left'}
@@ -69,12 +73,12 @@ const HomeScreen = ({navigation}) => {
           overlay={true}
           opacity={0.4}
           onClose={closeDrawer}>
-          <StatusBar backgroundColor="#e6b800" />
+          <StatusBar backgroundColor="#F9b120" />
           <View backgroundColor="#F8F4E9">
-            <CustomStatusBarHome
+            {/* <CustomStatusBarHome
               toggleDrawer={toggleDrawer}
               toggleBottomSheet={toggleBottomSheet}
-            />
+            /> */}
           </View>
           <ScrollView>
             <View style={{padding: screenWidth * 0.015}}>
@@ -97,7 +101,7 @@ const HomeScreen = ({navigation}) => {
 
             <View style={{marginLeft: screenWidth * 0.04}}>
               <Text style={[Styling.Header3, {marginTop: 27}]}>
-                Track Application
+                {t('TrackApplication')}
               </Text>
               <View style={styles.menuRow}>
                 <View style={styles.iconMenuView}>
@@ -108,14 +112,15 @@ const HomeScreen = ({navigation}) => {
                           navigation.navigate('TrackApplicationScreen')
                         }>
                         <Image
-                          source={require('../../assets/ic_track_application.png')}
+                          source={require('../../assets/icons/ic_track_application.png')}
                           style={styles.icon} // Adjust the style as needed
                         />
                       </TouchableOpacity>
                     </View>
                   </View>
                   <Text style={[Styling.Text2, {textAlign: 'center'}]}>
-                    Track {'\n'} Application
+                    {/* Track {'\n'} Application */}
+                    {t('TrackApplicationIcon')}
                   </Text>
                 </View>
               </View>
@@ -123,7 +128,7 @@ const HomeScreen = ({navigation}) => {
 
             <View style={{marginLeft: screenWidth * 0.04}}>
               <Text style={[Styling.Header3, {marginTop: 27}]}>
-                Know about Rooftop Solar
+                {t('RoofTopSolar')}
               </Text>
               <View style={[styles.menuRow, {flex: 1}]}>
                 <View style={[styles.iconMenuView]}>
@@ -134,14 +139,14 @@ const HomeScreen = ({navigation}) => {
                           navigation.navigate('CalculateSavingsScreen')
                         }>
                         <Image
-                          source={require('../../assets/ic_solar_calculator.png')}
+                          source={require('../../assets/icons/ic_solar_calculator.png')}
                           style={styles.icon}
                         />
                       </TouchableOpacity>
                     </View>
                   </View>
                   <Text style={[Styling.Text2, {textAlign: 'center'}]}>
-                    Calculate{'\n'}Savings
+                    {t('CalculateSavings')}
                   </Text>
                 </View>
                 <View style={styles.iconMenuView}>
@@ -152,22 +157,22 @@ const HomeScreen = ({navigation}) => {
                           navigation.navigate('KnowAboutRooftopScreen')
                         }>
                         <Image
-                          source={require('../../assets/ic_know_solar.png')}
+                          source={require('../../assets/icons/ic_know_solar.png')}
                           style={styles.icon}
                         />
                       </TouchableOpacity>
                     </View>
                   </View>
                   <Text style={[Styling.Text2, {textAlign: 'center'}]}>
-                    Know about{'\n'}rooftop Solar
+                    {t('RoofTopSolarIcon')}
                   </Text>
                 </View>
-                <View style={styles.iconMenuView}>
+                {/* <View style={styles.iconMenuView}>
                   <View style={styles.iconMenutwobackground}>
                     <View style={styles.iconMenutwo}>
                       <TouchableOpacity>
                         <Image
-                          source={require('../../assets/ic_important_document.png')}
+                          source={require('../../assets/icons/ic_important_document.png')}
                           style={styles.icon}
                         />
                       </TouchableOpacity>
@@ -176,12 +181,14 @@ const HomeScreen = ({navigation}) => {
                   <Text style={[Styling.Text2, {textAlign: 'center'}]}>
                     Important{'\n'}Documents
                   </Text>
-                </View>
+                </View> */}
               </View>
             </View>
 
             <View style={{marginLeft: screenWidth * 0.04}}>
-              <Text style={[Styling.Header3, {marginTop: 27}]}>Contact</Text>
+              <Text style={[Styling.Header3, {marginTop: 27}]}>
+                {t('Contact')}
+              </Text>
               <View style={styles.menuRow}>
                 <View style={styles.iconMenuView}>
                   <View style={styles.iconMenutwobackground}>
@@ -189,30 +196,32 @@ const HomeScreen = ({navigation}) => {
                       <TouchableOpacity
                         onPress={() => navigation.navigate('InstallersScreen')}>
                         <Image
-                          source={require('../../assets/ic_find_installer.png')}
+                          source={require('../../assets/icons/ic_find_installer.png')}
                           style={styles.icon}
                         />
                       </TouchableOpacity>
                     </View>
                   </View>
                   <Text style={[Styling.Text2, {textAlign: 'center'}]}>
-                    Installers {'\n'}
+                    {t('Installers')}
+                    {'\n'}
                   </Text>
                 </View>
                 <View style={styles.iconMenuView}>
                   <View style={styles.iconMenutwobackground}>
                     <View style={styles.iconMenutwo}>
                       <TouchableOpacity
-                        onPress={() => Alert.alert('menu pressed')}>
+                        onPress={() => navigation.navigate('ContactUsScreen')}>
                         <Image
-                          source={require('../../assets/ic_contact_us.png')}
+                          source={require('../../assets/icons/ic_contact_us.png')}
                           style={styles.icon}
                         />
                       </TouchableOpacity>
                     </View>
                   </View>
                   <Text style={[Styling.Text2, {textAlign: 'center'}]}>
-                    Contact Us{'\n'}
+                    {t('ContactUs')}
+                    {'\n'}
                   </Text>
                 </View>
               </View>

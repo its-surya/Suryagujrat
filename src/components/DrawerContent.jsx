@@ -22,7 +22,7 @@ const DrawerContent = () => {
     <View style={styles.animatedBox}>
       <View style={styles.drawerIcon}>
         <Image
-          source={require('../../assets/AhaSolar.png')}
+          source={require('../../assets/icons/AhaSolar.png')}
           style={{
             width: 80,
             height: 80,

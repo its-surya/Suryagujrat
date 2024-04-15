@@ -5,6 +5,7 @@ import {
   Dimensions,
   TouchableOpacity,
   Image,
+  StatusBar,
 } from 'react-native';
 import React from 'react';
 import CardView from '../components/CardView';
@@ -21,6 +22,7 @@ const EstimateDetailsScreen = () => {
   return (
     <GestureHandlerRootView
       style={{height: '100%', backgroundColor: '#F8F4E9'}}>
+      <StatusBar backgroundColor="#F9b120" />
       <ScrollView>
         <View style={{marginStart: screenWidth * 0.07, marginVertical: 10}}>
           <Text
@@ -37,18 +39,18 @@ const EstimateDetailsScreen = () => {
               paddingHorizontal: screenWidth * 0.05,
             }}>
             <CardView
-              icon="file"
+              icon="rupee"
               description="Rs.45,520.00"
               color="blue"
-              buttonText="Approx. Solar Generation"
+              buttonText="Approx. System Cost"
               onPress={() => console.log('Button pressed')}
             />
 
             <CardView
-              icon="file"
+              icon="sun-o"
               description="Rs.78,976.00"
-              buttonText="Approx. System Cost"
-              color="blue"
+              buttonText="Approx. Solar Generation"
+              color="yellow"
               onPress={() => console.log('Button pressed')}
             />
           </View>
@@ -59,10 +61,10 @@ const EstimateDetailsScreen = () => {
               padding: screenWidth * 0.05,
             }}>
             <CardView
-              icon="file"
+              icon="bank"
               description="Rs.45,520.00"
-              color="blue"
-              buttonText="Approx. Solar Generation"
+              color="green"
+              buttonText="Estimated Payback"
               onPress={() => console.log('Button pressed')}
             />
           </View>
@@ -113,7 +115,7 @@ const EstimateDetailsScreen = () => {
           <View style={{flexDirection: 'row'}}>
             <TouchableOpacity>
               <Image
-                source={require('../../assets/call.png')}
+                source={require('../../assets/icons/call.png')}
                 style={{width: 20, height: 20}} // Adjust the style as needed
               />
             </TouchableOpacity>
@@ -130,7 +132,7 @@ const EstimateDetailsScreen = () => {
           <View style={{flexDirection: 'row', marginVertical: 5}}>
             <TouchableOpacity>
               <Image
-                source={require('../../assets/email.png')}
+                source={require('../../assets/icons/email.png')}
                 style={{width: 20, height: 20}} // Adjust the style as needed
               />
             </TouchableOpacity>

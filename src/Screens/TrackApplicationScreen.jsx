@@ -1,21 +1,52 @@
+import React, {useState} from 'react';
 import {
-  SafeAreaView,
+  ActivityIndicator,
+  ScrollView,
   StyleSheet,
   Text,
   View,
-  StatusBar,
-  Dimensions,
+  SafeAreaView,
 } from 'react-native';
-import React, {useState} from 'react';
 import {Button, TextInput} from 'react-native-paper';
-import Styling from '../components/Styling';
-const screenWidth = Dimensions.get('window').width;
-const screenHeight = Dimensions.get('window').height;
+import commonStyles from '../../assets/styles/commonStyles';
+import {colors} from '../../assets/styles/commonColors';
+import {API_ENDPOINTS} from '../api/ApiConfig';
+import {apiWithHeaders} from '../api/API_Instance';
+// For Language
+import {useTranslation} from 'react-i18next';
 
 const TrackApplicationScreen = ({navigation}) => {
+  const {t} = useTranslation();
+
+  const [isLoading, setIsLoading] = useState(false);
   const [applicationNo, setApplicationNo] = useState('');
   const [consumerNo, setConsumerNo] = useState('');
   const [mobileNo, setMobileNo] = useState('');
+  const [applicationNoError, setApplicationNoError] = useState(false);
+  const [consumerNoError, setConsumerNoError] = useState(false);
+  const [mobileNoError, setMobileNoError] = useState(false);
+
+  const TrackApplicationAPI = async () => {
+    try {
+      const response = await apiWithHeaders(API_ENDPOINTS.getApplication, {
+        application_no: applicationNo,
+        consumer_no: consumerNo,
+        consumer_mobile: mobileNo,
+        deviceType: 'mobile',
+      });
+      if (response.data.success) {
+        setIsLoading(false);
+        console.log(response.data);
+        navigation.navigate('EstimateDetailsScreen', {
+          applicationData: response.data,
+        });
+      } else {
+        console.log('API request unsuccessful:', response.data.message);
+      }
+    } catch (error) {
+      console.log('Error fetching installers:', error);
+    }
+  };
 
   const clearFields = () => {
     setApplicationNo('');
@@ -23,61 +54,123 @@ const TrackApplicationScreen = ({navigation}) => {
     setMobileNo('');
   };
 
+  const handelSearch = () => {
+    if (validateAllFields()) {
+      TrackApplicationAPI();
+      setIsLoading(true);
+    }
+  };
+
+  const validateAllFields = () => {
+    if (!applicationNo.trim()) {
+      setApplicationNoError(true);
+      return;
+    }
+    if (!consumerNo.trim()) {
+      setConsumerNoError(true);
+      return;
+    }
+    if (!mobileNo.trim()) {
+      setMobileNoError(true);
+      return;
+    }
+    return true;
+  };
+
   return (
-    <SafeAreaView style={styles.Container}>
-      <StatusBar backgroundColor="#e6b800" />
-      <View style={styles.Card}>
-        <TextInput
-          mode="outlined"
-          style={styles.textInputs}
-          label="Application Number"
-          value={applicationNo}
-          onChangeText={text => setApplicationNo(text)}
-          theme={{colors: {primary: '#e6b800', underlineColor: 'transparent'}}} // Adjust theme colors
+    <SafeAreaView style={{flex: 1}}>
+      {isLoading ? (
+        <ActivityIndicator
+          size="large"
+          color={colors.primary}
+          style={commonStyles.loader}
         />
-
-        <TextInput
-          mode="outlined"
-          style={styles.textInputs}
-          label="Consumer Number"
-          value={consumerNo}
-          onChangeText={text => setConsumerNo(text)}
-          theme={{colors: {primary: '#e6b800', underlineColor: 'transparent'}}}
-        />
-
-        <TextInput
-          mode="outlined"
-          style={styles.textInputs}
-          label="Mobile Number"
-          inputMode="numeric"
-          value={mobileNo}
-          onChangeText={text => setMobileNo(text)}
-          theme={{colors: {primary: '#e6b800', underlineColor: 'transparent'}}}
-        />
-
-        <View style={styles.buttonContainer}>
-          <Button mode="contained" style={styles.button2} onPress={clearFields}>
-            <Text style={[Styling.buttonText, {color: '#e6b800'}]}>Clear </Text>
-          </Button>
-
-          <Button
-            mode="contained"
-            style={styles.button1}
-            onPress={() => navigation.navigate('ApplicationDetailScreen')}>
-            <Text style={Styling.buttonText}>Search</Text>
-          </Button>
-        </View>
-
-        <Text style={{...Styling.Text2, marginTop: screenWidth * 0.1}}>
-          Consumer can do the following activities from here by entering your
-          Application Number, Consumer Number and Consumer Mobile Number:
-          {'\n'}
-          {'\n'}1. Upload Payment Receipt of payment made to
-          {'\n'}
-          {'   '} Installer.
-          {'\n'}2. Track Application Status.
-        </Text>
-      </View>
+      ) : (
+        <ScrollView style={commonStyles.Container}>
+          <View style={commonStyles.Card}>
+            <TextInput
+              mode="outlined"
+              style={commonStyles.TextInputs}
+              label={t('ApplicationNumber')}
+              error={applicationNoError}
+              value={applicationNo}
+              maxLength={100}
+              theme={{colors: {primary: colors.textInputBackground}}}
+              onChangeText={text => {
+                setApplicationNo(text);
+                setApplicationNoError(false);
+              }}
+            />
+            {applicationNoError && (
+              <Text style={commonStyles.ErrorText}>
+                {t('applicationNoError')}
+              </Text>
+            )}
+            <TextInput
+              mode="outlined"
+              style={commonStyles.TextInputs}
+              label={t('ConsumerNumber')}
+              value={consumerNo}
+              inputMode="numeric"
+              error={consumerNoError}
+              maxLength={100}
+              theme={{colors: {primary: colors.textInputBackground}}}
+              onChangeText={text => {
+                setConsumerNo(text);
+                setConsumerNoError(false);
+              }}
+            />
+            {consumerNoError && (
+              <Text style={commonStyles.ErrorText}>{t('consumerNoError')}</Text>
+            )}
+            <TextInput
+              mode="outlined"
+              style={commonStyles.TextInputs}
+              label={t('MobileNumber')}
+              inputMode="numeric"
+              error={mobileNoError}
+              value={mobileNo}
+              maxLength={10}
+              theme={{colors: {primary: colors.textInputBackground}}}
+              onChangeText={text => {
+                setMobileNo(text);
+                setMobileNoError(false);
+              }}
+            />
+            {mobileNoError && (
+              <Text style={commonStyles.ErrorText}>{t('mobileNoError')}</Text>
+            )}
+            <View style={styles.buttonContainer}>
+              <Button
+                mode="contained"
+                style={[
+                  commonStyles.RowButtons,
+                  {backgroundColor: 'white'},
+                  {borderWidth: 1},
+                  {borderColor: 'black'},
+                ]}
+                labelStyle={{color: colors.primary}}
+                onPress={clearFields}>
+                {t('Clear')}
+              </Button>
+              <Button
+                mode="contained"
+                style={commonStyles.RowButtons}
+                labelStyle={{color: colors.whiteText}}
+                onPress={() => handelSearch()}>
+                {t('Search')}
+              </Button>
+            </View>
+            <Text
+              style={[
+                styles.AdditionalTextStyle,
+                commonStyles.DescriptionText,
+              ]}>
+              {t('TrackApplicationDescription')}
+            </Text>
+          </View>
+        </ScrollView>
+      )}
     </SafeAreaView>
   );
 };
@@ -85,35 +178,12 @@ const TrackApplicationScreen = ({navigation}) => {
 export default TrackApplicationScreen;
 
 const styles = StyleSheet.create({
-  Container: {},
-  Card: {
-    margin: 10,
-    backgroundColor: '#ffffff',
-    borderRadius: 8,
-    elevation: 3,
-    padding: 16,
-  },
-  textInputs: {
-    margin: 10,
-  },
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 16,
   },
-  button1: {
-    flex: 1,
-    backgroundColor: '#F9b120',
-    marginHorizontal: 4,
-  },
-  button2: {
-    flex: 1,
-    backgroundColor: 'white',
-    marginHorizontal: 4,
-    borderColor: '#d3d3d3 ',
-    borderWidth: 1,
-  },
-  texts: {
+  AdditionalTextStyle: {
     marginTop: 15,
   },
 });

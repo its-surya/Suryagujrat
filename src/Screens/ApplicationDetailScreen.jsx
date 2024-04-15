@@ -60,7 +60,7 @@ const ApplicationDetailScreen = () => {
   return (
     <SafeAreaView style={{height: '100%', backgroundColor: 'white'}}>
       <GestureHandlerRootView>
-        <StatusBar backgroundColor="#e6b800" />
+        <StatusBar backgroundColor="#F9b120" />
         <ScrollView style={{height: screenHeight * 0.84}}>
           <View style={styles.applicationDetailHeader}>
             <Text style={Styling.Header1}>Mr. ALOO SINGH</Text>
